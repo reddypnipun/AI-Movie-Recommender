@@ -28,7 +28,17 @@ A lightweight, content-based movie recommendation engine built with Python and S
 * **[Streamlit](https://streamlit.io/):** The web framework used for building the responsive UI and handling state management.
 * **[Pandas](https://pandas.pydata.org/):** Used for data ingestion, manipulation, missing value handling, and cloud-streaming.
 * **[Scikit-Learn](https://scikit-learn.org/):** Powers the core AI using `TfidfVectorizer` for Natural Language Processing and `cosine_similarity` for match calculation.
+* **[Kaggle](https://www.kaggle.com/):** Primary source for the comprehensive movie datasets, metadata, and future feature engineering (like extended crew data).[https://www.kaggle.com/datasets/gsimonx37/letterboxd?select=crew.csv]
 
+---
+
+## 🧠 How the Algorithm Works
+
+1. **Feature Engineering:** The app concatenates text fields into a single string, artificially increasing the weight of highly important features like genre, description, and keywords by duplicating them.
+2. **Vectorization:** A `TfidfVectorizer` converts these strings into a mathematical matrix, capping vocabulary at 5,000 features and removing common English stop words.
+3. **Similarity Calculation:** When a user selects a movie, the app retrieves its vector and calculates the **Cosine Similarity** between that specific movie and all others.
+4. **Filtering & Ranking:** The app filters out the original movie, removes TV shows, ensures a minimum rating of `3.0`, and returns the top 5 matches.
+5. 
 ---
 
 ## 🚀 How to Setup Locally
@@ -56,3 +66,4 @@ The live app streams data from a public Dropbox link. If you want to use your ma
 Start the Streamlit server:
 ```bash
 streamlit run app.py
+
