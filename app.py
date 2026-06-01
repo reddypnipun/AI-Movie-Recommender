@@ -28,7 +28,9 @@ def get_vecs(df):
     return v.fit_transform(df['text'])
 df = load()
 vecs = get_vecs(df)
-st.title(" AI Movie Recommender")
+st.title("AI Movie Recommender")
+st.caption("Sample Portfolio Project")
+st.info("⭐⭐**Note:** This live demo is processing a limited dataset of 10,000 movies to optimize performance within cloud memory constraints.⭐⭐")
 if st.session_state.sel is None:
     st.write("### Step 1: Find your movie")
     q = st.text_input("Type a movie name:")
