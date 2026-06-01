@@ -16,7 +16,7 @@ if 'res' not in st.session_state:
 @st.cache_data
 def load():
     url='https://www.dropbox.com/scl/fi/2kewaxup7w4jq5rissi7a/master_movie_data.csv?rlkey=1zytk3770hckquwn1z8qbmt5l&st=14hi9ulm&dl=1'
-    df = pd.read_csv(url)
+    df = pd.read_csv(url, nrows=10000)
     cols = ['genre', 'name_y', 'description', 'tagline', 'director', 'theme_keywords']
     for c in cols:
         df[c] = df[c].fillna('')
